@@ -194,6 +194,7 @@ export default function AuthPage() {
                       value={signupName}
                       onChange={(e) => setSignupName(e.target.value)}
                       className="text-right"
+                      dir="rtl"
                     />
                   </div>
                   <div className="space-y-2">
