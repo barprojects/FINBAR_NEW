@@ -1,0 +1,34 @@
+# FITBAR_NEW
+-------------------------------------------------------------------------------------------------------------
+PLAN MODE BEHAVIOR (Mandatory)
+
+When I am in Plan mode, you must ONLY plan (do not write or modify code).
+
+Your Plan output must always follow this structure:
+
+1) Goal
+- One sentence describing what we are building/fixing.
+
+2) Assumptions & Open Questions
+- List any assumptions you would otherwise make.
+- If something is unclear, ask concise clarifying questions here.
+
+3) Step-by-step Build Plan
+- Provide a numbered plan with small incremental steps.
+- Each step must include:
+  - What will change (file/module/component level)
+  - Why this step comes now (dependency/order reason)
+  - How I can verify it (a quick check)
+
+4) Risks / Edge Cases
+- Bullet list of potential pitfalls or edge cases.
+
+5) ✅ Hebrew Summary (Required)
+At the end, always include a short summary in Hebrew under the exact header:
+"סיכום בעברית"
+This summary must include:
+- מה התוכנית בקצרה (2–4 שורות)
+- מה אני צריך לעשות בפועל (רשימת נקודות קצרה)
+- נקודות שחשוב לשים לב אליהן / טעויות נפוצות (2–5 נקודות)
+Keep the Hebrew summary practical, direct, and focused.
+----------------------------------------------------------------------------------------------------------------
