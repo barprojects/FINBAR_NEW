@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { format } from 'date-fns'
-import { he } from 'date-fns/locale'
 import { X, Plus, CalendarIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -278,7 +277,7 @@ export function NewActionModal({ isOpen, onClose, portfolios }: NewActionModalPr
                 <SelectTrigger>
                   <SelectValue placeholder="בחר תיק" />
                 </SelectTrigger>
-                <SelectContent side="bottom" align="start">
+                <SelectContent>
                   {portfolios.map((portfolio) => (
                     <SelectItem key={portfolio.id} value={portfolio.id}>
                       {portfolio.name}
@@ -295,26 +294,21 @@ export function NewActionModal({ isOpen, onClose, portfolios }: NewActionModalPr
                 <PopoverTrigger asChild>
                   <Button
                     variant="outline"
-                    className="w-full justify-start text-right font-normal"
+                    className="w-full font-normal flex flex-row-reverse justify-between"
                   >
-                    <CalendarIcon className="ml-2 h-4 w-4 text-muted-foreground" />
-                    {actionDate ? (
-                      format(actionDate, 'dd/MM/yyyy')
-                    ) : (
-                      <span className="text-muted-foreground">בחר תאריך</span>
-                    )}
+                    <span className={actionDate ? "" : "text-muted-foreground"}>
+                      {actionDate ? format(actionDate, 'dd/MM/yyyy') : 'בחר תאריך'}
+                    </span>
+                    <CalendarIcon className="h-4 w-4 text-muted-foreground" />
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
+                <PopoverContent className="w-auto p-3" align="end">
                   <Calendar
-                    mode="single"
                     selected={actionDate}
                     onSelect={(date) => {
                       setActionDate(date)
                       setDatePickerOpen(false)
                     }}
-                    locale={he}
-                    initialFocus
                   />
                 </PopoverContent>
               </Popover>
@@ -327,7 +321,7 @@ export function NewActionModal({ isOpen, onClose, portfolios }: NewActionModalPr
                 <SelectTrigger>
                   <SelectValue placeholder="בחר סוג פעולה" />
                 </SelectTrigger>
-                <SelectContent side="bottom" align="start">
+                <SelectContent>
                   {ACTION_TYPES.map((type) => (
                     <SelectItem key={type.value} value={type.value}>
                       {type.label}
@@ -351,8 +345,7 @@ export function NewActionModal({ isOpen, onClose, portfolios }: NewActionModalPr
                       placeholder="AAPL"
                       value={symbol}
                       onChange={(e) => setSymbol(e.target.value.toUpperCase())}
-                      className="text-left"
-                      dir="ltr"
+                      className="text-right"
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-3">
@@ -365,8 +358,7 @@ export function NewActionModal({ isOpen, onClose, portfolios }: NewActionModalPr
                         placeholder="10"
                         value={quantity}
                         onChange={(e) => setQuantity(e.target.value)}
-                        className="text-left"
-                        dir="ltr"
+                        className="text-right"
                       />
                     </div>
                     <div className="space-y-1.5">
@@ -378,8 +370,7 @@ export function NewActionModal({ isOpen, onClose, portfolios }: NewActionModalPr
                         placeholder="150.00"
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
-                        className="text-left"
-                        dir="ltr"
+                        className="text-right"
                       />
                     </div>
                   </div>
@@ -396,7 +387,7 @@ export function NewActionModal({ isOpen, onClose, portfolios }: NewActionModalPr
                         <SelectTrigger>
                           <SelectValue placeholder="בחר" />
                         </SelectTrigger>
-                        <SelectContent side="top" align="start">
+                        <SelectContent side="top">
                           {CURRENCIES.map((c) => (
                             <SelectItem key={c.value} value={c.value}>
                               {c.label}
@@ -411,7 +402,7 @@ export function NewActionModal({ isOpen, onClose, portfolios }: NewActionModalPr
                         <SelectTrigger>
                           <SelectValue placeholder="בחר" />
                         </SelectTrigger>
-                        <SelectContent side="top" align="start">
+                        <SelectContent side="top">
                           {CURRENCIES.map((c) => (
                             <SelectItem key={c.value} value={c.value}>
                               {c.label}
@@ -430,8 +421,7 @@ export function NewActionModal({ isOpen, onClose, portfolios }: NewActionModalPr
                       placeholder="3.65"
                       value={exchangeRate}
                       onChange={(e) => setExchangeRate(e.target.value)}
-                      className="text-left"
-                      dir="ltr"
+                      className="text-right"
                     />
                   </div>
                 </>
@@ -446,7 +436,7 @@ export function NewActionModal({ isOpen, onClose, portfolios }: NewActionModalPr
                       <SelectTrigger>
                         <SelectValue placeholder="בחר מטבע" />
                       </SelectTrigger>
-                      <SelectContent side="top" align="start">
+                      <SelectContent side="top">
                         {CURRENCIES.map((c) => (
                           <SelectItem key={c.value} value={c.value}>
                             {c.label}
@@ -464,8 +454,7 @@ export function NewActionModal({ isOpen, onClose, portfolios }: NewActionModalPr
                       placeholder="1000.00"
                       value={amount}
                       onChange={(e) => setAmount(e.target.value)}
-                      className="text-left"
-                      dir="ltr"
+                      className="text-right"
                     />
                   </div>
                 </>
@@ -481,8 +470,7 @@ export function NewActionModal({ isOpen, onClose, portfolios }: NewActionModalPr
                       placeholder="AAPL"
                       value={symbol}
                       onChange={(e) => setSymbol(e.target.value.toUpperCase())}
-                      className="text-left"
-                      dir="ltr"
+                      className="text-right"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -494,8 +482,7 @@ export function NewActionModal({ isOpen, onClose, portfolios }: NewActionModalPr
                       placeholder="25.00"
                       value={amount}
                       onChange={(e) => setAmount(e.target.value)}
-                      className="text-left"
-                      dir="ltr"
+                      className="text-right"
                     />
                   </div>
                 </>

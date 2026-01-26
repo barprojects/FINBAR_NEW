@@ -1,0 +1,87 @@
+.calendar-wrapper .react-calendar {
+  width: 100%;
+  max-width: 350px;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+.calendar-wrapper .react-calendar__navigation {
+  display: flex;
+  height: 44px;
+  margin-bottom: 0.5em;
+}
+
+.calendar-wrapper .react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.calendar-wrapper .react-calendar__navigation button:hover {
+  background-color: hsl(var(--accent));
+}
+
+.calendar-wrapper .react-calendar__navigation button:disabled {
+  background-color: transparent;
+  opacity: 0.5;
+}
+
+.calendar-wrapper .react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.calendar-wrapper .react-calendar__month-view__weekdays__weekday {
+  padding: 0.5em;
+}
+
+.calendar-wrapper .react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+}
+
+.calendar-wrapper .react-calendar__month-view__days__day {
+  padding: 0.5em;
+  font-size: 0.875rem;
+}
+
+.calendar-wrapper .react-calendar__tile {
+  max-width: 100%;
+  padding: 10px 6px;
+  background: none;
+  text-align: center;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.calendar-wrapper .react-calendar__tile:hover {
+  background-color: hsl(var(--accent));
+}
+
+.calendar-wrapper .react-calendar__tile--now {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.calendar-wrapper .react-calendar__tile--active {
+  background-color: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+}
+
+.calendar-wrapper .react-calendar__tile--active:hover {
+  background-color: hsl(var(--primary)) !important;
+}
+
+.calendar-wrapper .react-calendar__month-view__days__day--neighboringMonth {
+  color: hsl(var(--muted-foreground));
+  opacity: 0.5;
+}
