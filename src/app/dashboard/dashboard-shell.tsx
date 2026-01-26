@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
-import { Menu, Plus, X, Home, Settings, Briefcase } from 'lucide-react'
+import { Menu, Plus, Home, Settings, Briefcase } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { NewActionModal } from './new-action-modal'
 
 interface Portfolio {
   id: string
@@ -164,33 +165,12 @@ export function DashboardShell({ userName, portfolios, children }: DashboardShel
           </div>
         </header>
 
-        {/* Modal Overlay */}
-        {modalOpen && (
-          <div
-            className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4"
-            onClick={() => setModalOpen(false)}
-          >
-            <div
-              className="bg-background rounded-lg border border-border shadow-xl w-full max-w-md p-6"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-lg font-semibold">יצירה חדשה</h2>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => setModalOpen(false)}
-                  aria-label="סגור"
-                >
-                  <X className="h-4 w-4" />
-                </Button>
-              </div>
-              <p className="text-muted-foreground text-center py-8">
-                בקרוב...
-              </p>
-            </div>
-          </div>
-        )}
+        {/* New Action Modal */}
+        <NewActionModal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          portfolios={portfolios}
+        />
 
         {/* Main Content */}
         <main className="flex-1">{children}</main>
