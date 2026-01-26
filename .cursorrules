@@ -32,3 +32,37 @@ This summary must include:
 - נקודות שחשוב לשים לב אליהן / טעויות נפוצות (2–5 נקודות)
 Keep the Hebrew summary practical, direct, and focused.
 ----------------------------------------------------------------------------------------------------------------
+CLARIFICATION & CONTEXT LOADING RULE (Mandatory)
+
+If a request does not contain enough information to proceed safely or unambiguously:
+- STOP immediately.
+- Do NOT guess, assume, or fill gaps.
+- Ask clear, focused clarification questions before doing anything else.
+- Do not write code, plans, or partial solutions until clarification is provided.
+
+Before responding to ANY request (Plan or Build):
+- Load and review all relevant project files, including specs, docs, and existing code.
+- Do not optimize for speed or brevity; optimize for correctness and completeness.
+- Base your response ONLY on the actual project state, not assumptions.
+
+If relevant files are missing, outdated, or contradictory:
+- Point this out explicitly.
+- Ask how to proceed before continuing.
+
+
+DEV SERVER RESET RULE (Mandatory)
+
+After completing ANY build action (code changes, file creation, refactor, or configuration update):
+- Explicitly assume the development server state is invalid.
+- Stop / disconnect the current dev server.
+- Restart the development server using:
+  npm run dev
+
+Do not assume hot-reload is sufficient.
+Do not continue to the next task before the server has been restarted.
+
+After restart:
+- Verify that the app starts without errors.
+- If errors appear, stop and report them before proceeding.
+
+This rule applies to every completed action, regardless of size.
